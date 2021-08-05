@@ -11,6 +11,7 @@ public class Simulator {
 
         System.out.println("--------------------------------");
         System.out.println("--------------------------------");
+        System.out.println("--------------------------------");
 
     }
 
