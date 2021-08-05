@@ -13,6 +13,9 @@ public class Worker extends Ant {
     void move() {
 //        the workers normally make one step in one of the four
 //        directions, chosen randomly before each move
+
+//        var randomDirection = Direction.getRandomDirection();
+
         this.moveIntoDirection(Direction.getRandomDirection());
     }
 }

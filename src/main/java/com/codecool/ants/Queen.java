@@ -18,6 +18,6 @@ public class Queen extends Ant {
 
     @Override
     void move() {
-
+//        System.out.println("Queen moves");
     }
 }

@@ -2,12 +2,15 @@ package com.codecool.ants;
 
 import com.codecool.ants.geometry.Position;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Colony {
     private int width;
     private Ant Queen;
     private Ant[][] sandbox;
+    private List<Ant> ants = new ArrayList<>();
 
     public Colony(int width) {
         this.width = width;
@@ -22,9 +25,16 @@ public class Colony {
     }
 
     public void update() {
-        // dla każedj mrówki - act
-        // display
+        for (int i = 0; i < sandbox.length; i++) {
+            for (int j = 0; j < sandbox[i].length; j++) {
+                sandbox[i][j] = null;
+            }
+        }
 
+        for (var ant: this.ants) {
+            ant.move();
+            sandbox[ant.getPosition().getX()][ant.getPosition().getY()] = ant;
+        }
     }
 
     public void display() {
@@ -50,11 +60,14 @@ public class Colony {
         }
 
         this.sandbox[this.getQueen().getPosition().getX()][this.getQueen().getPosition().getY()] = this.Queen;
+        this.ants.add(this.Queen);
+
 
     }
 
     private void generateAnts(int numberOfDrones, int numberOfWorkers, int numberOfSoldiers) {
         Random random = new Random();
+
         generateDrones(numberOfDrones, random);
         generateWorkers(numberOfWorkers, random);
         generateSoldiers(numberOfSoldiers, random);
@@ -73,7 +86,9 @@ public class Colony {
                 continue;
             }
 
-            this.sandbox[x][y] = new Soldier(position, this);
+            var soldier = new Soldier(position, this);
+            this.sandbox[x][y] = soldier;
+            this.ants.add(soldier);
         }
     }
 
@@ -90,7 +105,10 @@ public class Colony {
                 continue;
             }
 
-            this.sandbox[x][y] = new Worker(position, this);
+            var worker = new Worker(position, this);
+            this.sandbox[x][y] = worker;
+            this.ants.add(worker);
+
         }
     }
 
@@ -107,7 +125,9 @@ public class Colony {
                 continue;
             }
 
-            this.sandbox[x][y] = new Drone(position, this);
+            var drone = new Drone(position, this);
+            this.sandbox[x][y] = drone;
+            this.ants.add(drone);
         }
     }
 }

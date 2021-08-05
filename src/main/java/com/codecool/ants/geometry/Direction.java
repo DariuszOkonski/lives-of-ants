@@ -32,9 +32,4 @@ public enum Direction {
         int i = (ordinal() + 1 % Direction.values().length);
         return Direction.values()[i];
     }
-
-//    @Override
-//    public int compareTo(Object o) {
-//        return 0;
-//    }
 }

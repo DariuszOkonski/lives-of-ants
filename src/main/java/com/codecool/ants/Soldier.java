@@ -17,9 +17,10 @@ public class Soldier extends Ant {
 //        this means that in a 4-cycle they step one and turn to the left
 //        (towards North, East, South, and West, and then they start the cycle again)
 
-        Direction newDirection = lastStepDirection.turnLeft();
-        lastStepDirection = newDirection;
-        moveIntoDirection(newDirection);
+//        Direction newDirection = lastStepDirection.turnLeft();
+//        lastStepDirection = newDirection;
+//        moveIntoDirection(newDirection);
+//        System.out.println("Soldier moves");
     }
 }
 
