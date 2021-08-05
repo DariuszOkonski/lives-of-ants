@@ -10,6 +10,7 @@ public class Simulator {
         colony.display();
 
         System.out.println("--------------------------------");
+        System.out.println("--------------------------------");
 
     }
 
